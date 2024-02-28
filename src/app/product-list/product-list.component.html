@@ -4,7 +4,6 @@
             <input type="text" placeholder="Search" [(ngModel)]="searchTerm" />&nbsp;&nbsp;
             <select [(ngModel)]="categoryFilter">
               <option value="">All Categories</option>
-              <!-- Add dynamic category options based on available categories -->
               <option *ngFor="let product of products" [value]="product.category">
                 {{ product.category }}
               </option>
@@ -14,13 +13,7 @@
     </div>
 </div>
 
-<!-- <div *ngFor="let product of products | filter: searchTerm | categoryFilter: categoryFilter">
-  
-  <p>{{ product.name }}</p>
-  <p>{{ product.category }}</p>
-  <p>{{ product.cost }}</p>
-  <p>{{ product.description }}</p>
-</div> -->
+
 
 <div class="container">
     <div class="row">
