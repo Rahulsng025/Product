@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mt-5">
+            <input type="text" placeholder="Search" [(ngModel)]="searchTerm" />&nbsp;&nbsp;
+            <select [(ngModel)]="categoryFilter">
+              <option value="">All Categories</option>
+              <!-- Add dynamic category options based on available categories -->
+              <option *ngFor="let product of products" [value]="product.category">
+                {{ product.category }}
+              </option>
+            </select>&nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="navigateToHome()">Home</button> 
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngFor="let product of products | filter: searchTerm | categoryFilter: categoryFilter">
+  
+  <p>{{ product.name }}</p>
+  <p>{{ product.category }}</p>
+  <p>{{ product.cost }}</p>
+  <p>{{ product.description }}</p>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mt-5">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let product of products | filter: searchTerm | categoryFilter: categoryFilter">
+                  <tr>
+                    <th scope="row">{{ product.name}}</th>
+                    <td>{{product.category}}</td>
+                    <td>{{product.cost}}</td>
+                    <td>{{product.description}}</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
